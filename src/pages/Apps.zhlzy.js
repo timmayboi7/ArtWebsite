@@ -5,29 +5,15 @@ import wixLocationFrontend from 'wix-location-frontend';
 $w.onReady(function () {
 
     // ── Progress bars ─────────────────────────────────────────────────────
-    const appsProgressPTR = $w('#appsProgressPTR');
-    if (appsProgressPTR) {
-        appsProgressPTR.value = APP_PROGRESS.PTR;
-    }
-
-    const appsProgressCWF = $w('#appsProgressCWF');
-    if (appsProgressCWF) {
-        appsProgressCWF.value = APP_PROGRESS.CWF;
-    }
+    try { $w('#appsProgressPTR').value = APP_PROGRESS.PTR; } catch(_) {}
+    try { $w('#appsProgressCWF').value = APP_PROGRESS.CWF; } catch(_) {}
 
     // ── App card nav buttons ──────────────────────────────────────────────
-    const appsBtnPTR = $w('#appsBtnPTR');
-    if (appsBtnPTR) {
-        appsBtnPTR.onClick(() => {
-            wixLocationFrontend.to('/personal-tarot-reader');
-        });
-    }
+    try { $w('#appsBtnPTR').onClick(() => wixLocationFrontend.to('/personal-tarot-reader')); } catch(_) {}
+    try { $w('#appsBtnCWF').onClick(() => wixLocationFrontend.to('/coloring-with-friends')); } catch(_) {}
 
-    const appsBtnCWF = $w('#appsBtnCWF');
-    if (appsBtnCWF) {
-        appsBtnCWF.onClick(() => {
-            wixLocationFrontend.to('/coloring-with-friends');
-        });
-    }
+    // ── "All Apps" / "See All" buttons ───────────────────────────────────
+    try { $w('#btnAllApps').onClick(() => wixLocationFrontend.to('/apps')); } catch(_) {}
+    try { $w('#btnBackHome').onClick(() => wixLocationFrontend.to('/')); } catch(_) {}
 
 });
