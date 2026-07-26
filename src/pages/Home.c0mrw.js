@@ -5,60 +5,24 @@ import wixLocationFrontend from 'wix-location-frontend';
 $w.onReady(function () {
 
     // ── Hero section buttons ───────────────────────────────────────────────
-    const btnGallery = $w('#btnHeroGallery');
-    if (btnGallery) {
-        btnGallery.onClick(() => {
-            wixLocationFrontend.to('/gallery');
-        });
-    }
-
-    const btnApps = $w('#btnHeroApps');
-    if (btnApps) {
-        btnApps.onClick(() => {
-            wixLocationFrontend.to('/apps');
-        });
-    }
+    try { $w('#btnHeroGallery').onClick(() => wixLocationFrontend.to('/gallery')); } catch(_) {}
+    try { $w('#btnHeroApps').onClick(() => wixLocationFrontend.to('/apps')); } catch(_) {}
 
     // ── App teaser section — progress bars ────────────────────────────────
-    const progressPTR = $w('#progressPTR');
-    if (progressPTR) {
-        progressPTR.value = APP_PROGRESS.PTR;
-    }
-
-    const progressCWF = $w('#progressCWF');
-    if (progressCWF) {
-        progressCWF.value = APP_PROGRESS.CWF;
-    }
+    try { $w('#progressPTR').value = APP_PROGRESS.PTR; } catch(_) {}
+    try { $w('#progressCWF').value = APP_PROGRESS.CWF; } catch(_) {}
 
     // ── App teaser section — card buttons ─────────────────────────────────
-    const btnPTRDetails = $w('#btnPTRDetails');
-    if (btnPTRDetails) {
-        btnPTRDetails.onClick(() => {
-            wixLocationFrontend.to('/personal-tarot-reader');
-        });
-    }
-
-    const btnCWFDetails = $w('#btnCWFDetails');
-    if (btnCWFDetails) {
-        btnCWFDetails.onClick(() => {
-            wixLocationFrontend.to('/coloring-with-friends');
-        });
-    }
+    try { $w('#btnPTRDetails').onClick(() => wixLocationFrontend.to('/personal-tarot-reader')); } catch(_) {}
+    try { $w('#btnCWFDetails').onClick(() => wixLocationFrontend.to('/coloring-with-friends')); } catch(_) {}
 
     // ── All Apps button ───────────────────────────────────────────────────
-    const btnAllApps = $w('#btnAllApps');
-    if (btnAllApps) {
-        btnAllApps.onClick(() => {
-            wixLocationFrontend.to('/apps');
-        });
-    }
+    try { $w('#btnAllApps').onClick(() => wixLocationFrontend.to('/apps')); } catch(_) {}
 
-    // ── Gallery teaser button ─────────────────────────────────────────────
-    const btnSeeGallery = $w('#btnSeeGallery');
-    if (btnSeeGallery) {
-        btnSeeGallery.onClick(() => {
-            wixLocationFrontend.to('/gallery');
-        });
-    }
+    // ── Gallery teaser "See Full Gallery" button ──────────────────────────
+    // Note: use the element's actual #ID from the editor if the below doesn't match
+    try { $w('#btnSeeGallery').onClick(() => wixLocationFrontend.to('/gallery')); } catch(_) {}
+    try { $w('#btnGallery').onClick(() => wixLocationFrontend.to('/gallery')); } catch(_) {}
+    try { $w('#button4').onClick(() => wixLocationFrontend.to('/gallery')); } catch(_) {}
 
 });
